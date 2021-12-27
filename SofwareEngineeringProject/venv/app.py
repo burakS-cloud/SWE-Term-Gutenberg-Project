@@ -12,8 +12,10 @@ def index():
         search_word = request.args.get('book')
         response = requests.get("http://gutendex.com/books/?search=" + search_word)
         data = json.loads(response.content)
-        books = data['results']
-        print(books[0])
+        tempbooks = data['results']
+        for book in tempbooks:
+            if book['media_type'] == "Text":
+                books.append(book)
 
     return render_template('home.html', books=books)
 

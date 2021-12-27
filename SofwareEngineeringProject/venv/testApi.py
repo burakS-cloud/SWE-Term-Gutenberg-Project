@@ -9,7 +9,8 @@ books = []
 response = requests.get("http://gutendex.com/books/?search=" + search_word)
 data = json.loads(response.content)
 books = data['results']
-print(books[3])
+for book in books:
+    print(book['formats']['text/html'])
 
 
 def download_file(download_url, filename):
