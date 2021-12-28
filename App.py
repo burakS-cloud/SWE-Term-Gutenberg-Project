@@ -2,7 +2,7 @@ from flask import *
 import requests
 import urllib.request
 
-app = Flask('mars_discovery')
+app = Flask('swe-gutenberg-project')
 
 
 @app.route('/')
